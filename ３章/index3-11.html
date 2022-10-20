@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first Vue app</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <style>
+            .hello{
+                font-size:20pt;
+                font-weight:bold;
+                border:1px solid magenta;
+                padding: 5px 10px 0px 10px;
+            }
+
+            .red{
+                color:white;
+                background-color:red;
+            }
+        </style>
+
+        <h1>Vue.js</h1>
+        <div id="app">
+            <div><hello/></div>
+            <div><hello/></div>
+            <div><morning/></div>
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                components:{
+                    hello:{
+                        data:function(){
+                            return {
+                                counter:0,
+                            };
+                        },
+                        template: '<p v-on:click="counter++;" class="hello">clicked: {{counter}}.</p>'
+                    },
+
+                    morning:{
+                        data:function(){
+                            return {
+                                counter:0,
+                            };
+                        },
+                        template: '<p v-on:click="counter--;" class="hello">clickeeeeeeeeeeeeeeeed: {{counter}}.</p>'
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

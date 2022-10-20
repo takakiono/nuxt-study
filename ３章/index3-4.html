@@ -16,8 +16,7 @@
 
         <h1>Vue.js</h1>
         <div id="app">
-            <div><hello name="Taro" /></div>
-            <div><hello name="Hanako" /></div>
+            <hello v-for="item in data" v-bind:name="item" />
         </div>
 
         <script>
@@ -28,6 +27,9 @@
 
             var app = new Vue({
                 el: '#app',
+                data:{
+                    data:['Taro', 'Hanako', 'Sachiko', 'Jiro']
+                }
             });
         </script>
     </body>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first Vue app</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <h1>Vue .ja</h1>
+        <div id="app">
+            <ol v-html="messages"></ol>
+        </div>
+        <hr>
+        <input type="text" oninput="doInput(event);">
+        <button onclick="doAction();">
+            click
+        </button>
+
+        <script>
+            var data = {
+                messages: '<li>Hello Vue!</li>'
+            };
+
+            var app = new Vue ({
+                el: '#app',
+                data: data
+            });
+
+            function doInput(event) {
+                data.message = event.target.value;
+            }
+
+            function doAction() {
+                data.messages = '<li>' + data.message + '</li>' + data.messages;
+            }
+        </script>
+    </body>
+</html>

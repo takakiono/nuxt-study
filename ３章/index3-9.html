@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My first Vue app</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <style>
+            .hello{
+                font-size:20pt;
+                font-weight:bold;
+                border:1px solid magenta;
+                padding: 5px 10px 0px 10px;
+            }
+
+            .red{
+                color:white;
+                background-color:red;
+            }
+        </style>
+
+        <h1>Vue.js</h1>
+        <div id="app">
+            <hello/>
+        </div>
+
+        <script>
+            Vue.component('hello',{
+                data:function() {
+                    return {
+                        num:0,
+                    };
+                },
+                computed:{
+                    calc:function(event) {
+                        var total = 0;
+                        for(var i = 1; i <=this.num; i++){
+                            total += i;
+                        }
+                        return "total: " + total
+                    }
+                },
+                template: '<div><p calss="hello">{{calc}}</p><div><input type="number" v-model="num"></div></div>',
+            });
+
+            var app = new Vue({
+                el: '#app',
+            });
+        </script>
+    </body>
+</html>
