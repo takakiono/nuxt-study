@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <HelloWorld v-bind:title="message" v-on:result-event="appAction"/>
+    <hr>
+    <p>{{result}}</p>
+  </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
     HelloWorld
+  },
+  data: function(){
+    return {
+      message:'HELLO',
+      result:'no event.',
+    };
+  },
+  methods:{
+    appAction: function(message) {
+      this.result = '(*** you send:"' + message + '". ***)';
+    }
   }
 }
 </script>
